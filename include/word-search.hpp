@@ -11,8 +11,9 @@ struct Position{
 };
 
 struct Word{
-    std::string word;
-    std::vector<Position> char_pos;
+    public:
+        std::string word;
+        std::vector<Position> char_pos;
 };
 
 class WordSearch 
@@ -20,6 +21,7 @@ class WordSearch
     private:
         std::string file;
         std::vector<Word> words;
+        std::vector<std::vector<char>> grid;
 
     public: 
         WordSearch(std::string filename);
@@ -28,6 +30,7 @@ class WordSearch
         //Get Functions
         std::string getFilename() { return file; }
         std::vector<Word> getWords() { return words; }
+        std::vector<std::vector<char>> getGrid() { return grid; }
 }; 
 
 WordSearch::WordSearch(std::string filename){
@@ -41,6 +44,8 @@ void WordSearch:: ReadFile(){
     std::string line;
     while (std::getline(infile, line))
     {
+        if(line_count != 0){ grid.push_back(std::vector<char>()); }
+
         std::stringstream tempLine(line);
         std::string line_segment;
         while(std::getline(tempLine, line_segment, ','))
@@ -49,6 +54,9 @@ void WordSearch:: ReadFile(){
                 Word tempWord;
                 tempWord.word = line_segment;
                 words.push_back(tempWord);
+            }
+            else{
+                grid[line_count - 1].push_back(line_segment[0]);
             }
         }
         line_count++;
