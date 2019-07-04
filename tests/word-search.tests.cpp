@@ -51,5 +51,18 @@ TEST(WordSearch, Read_Grid_Test){
       EXPECT_EQ(correctGrid[i][j], grid[i][j]);
     }
   }
-   
+}
+
+TEST(WordSearch, Valid_Puzzle_Test){
+  const std::string filename1 = "test_data/master_puzzle.txt";
+  const std::string filename2 = "test_data/invalid_puzzle.txt";
+
+  WordSearch ws1(filename1);
+  ws1.ReadFile();
+
+  WordSearch ws2(filename2);
+  ws2.ReadFile();
+
+  EXPECT_EQ(true, ws1.isValidPuzzle());
+  EXPECT_EQ(false, ws2.isValidPuzzle());
 }

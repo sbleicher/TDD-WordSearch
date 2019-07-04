@@ -26,6 +26,7 @@ class WordSearch
     public: 
         WordSearch(std::string filename);
         void ReadFile();
+        bool isValidPuzzle();
 
         //Get Functions
         std::string getFilename() { return file; }
@@ -37,7 +38,7 @@ WordSearch::WordSearch(std::string filename){
     file = filename;
 }
 
-void WordSearch:: ReadFile(){
+void WordSearch::ReadFile(){
     std::ifstream infile(file);
 
     int line_count = 0;
@@ -61,6 +62,18 @@ void WordSearch:: ReadFile(){
         }
         line_count++;
     }
+}
+
+bool WordSearch::isValidPuzzle(){
+    
+    if(grid.size() == 0){ return false; }
+    
+    int gridLength = grid[0].size();
+    for(int i = 0; i < grid.size(); i++){
+        if(grid[i].size() != gridLength){ return false; }
+    }
+
+    return true;
 }
 
 #endif

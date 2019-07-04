@@ -1,8 +1,8 @@
 # Tasks:
 
 1. ~~Read Words~~
-2. Read Grid <-
-3. Valid Puzzle
+2. ~~Read Grid~~
+3. Valid Puzzle <-
 4. Search Horizantally Forward
 5. Search Horizantally Backward
 6. Search Vertically Forward
