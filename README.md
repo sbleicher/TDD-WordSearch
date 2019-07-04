@@ -1,6 +1,6 @@
 # Tasks:
 
-1. Get Words
+1. Read Words <-
 2. Read Grid
 3. Valid Puzzle
 4. Search Horizantally Forward

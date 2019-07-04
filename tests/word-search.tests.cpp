@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "word-search.hpp"
 
-TEST(WordSearch, first_test){
-  EXPECT_EQ(true, true);
+TEST(WordSearch, Filename_Test){
+  const std::string filename = "master_puzzle.txt";
+  WordSearch ws(filename);
+  EXPECT_EQ(filename, ws.getFilename());
 }
