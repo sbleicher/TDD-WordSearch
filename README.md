@@ -1,15 +1,33 @@
-# Tasks:
+# Word Search Puzzle Solver
 
-1. ~~Read Words~~
-2. ~~Read Grid~~
-3. ~~Valid Puzzle~~
-4. ~~Search Horizantally Forward~~
-5. ~~Search Horizantally Backward~~
-6. ~~Search Vertically Forward~~
-7. ~~Search Vertically Backward~~
-8. ~~Search Diagonally Descending Left~~
-9. ~~Search Diagonally Descending Right~~
-10. ~~Search Diagonally Ascending Left~~
-11. ~~Search Diagonally Ascending Right~~
-12. ~~Search Puzzle For Words~~
-13. Output Words Location <-
+## Make sure cmake is installed
+
+Testing of the program was done on Ubuntu 16.04 using cmake.
+
+```
+sudo apt-get install cmake
+```
+
+## Clone the repo
+
+```
+git clone https://github.com/sbleicher/TDD-WordSearch.git
+```
+
+## Running the program
+
+Make the file run.sh executable and run it. The program will solve the master_puzzle.txt crossword puzzle.
+
+```
+TDD-WordSearch$ chmod +x run.sh 
+TDD-WordSearch$ ./run.sh
+```
+
+## Running the tests
+
+Make the file runTests.sh executable and run it. The program will test the current build with 12 tests to confirm it is working properly.
+
+```
+TDD-WordSearch$ chmod +x runTests.sh 
+TDD-WordSearch$ ./runTests.sh
+```
