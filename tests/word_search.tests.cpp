@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "word-search.hpp"
+#include "word_search.hpp"
 
 TEST(WordSearch, Filename_Test){
   const std::string filename = "master_puzzle.txt";

@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 struct Position{
     int x, y;
@@ -47,6 +48,7 @@ class WordSearch
         bool checkIfWordFitsInPuzzle(int posX, int posY, int slopeX, int slopeY, Word word);
         void checkForWord(int x, int y, int slopeX, int slopeY);
         void searchPuzzle();
+        void printResults();
 
         //Get Functions
         std::string getFilename() { return file; }
@@ -142,6 +144,23 @@ void WordSearch::searchPuzzle(){
         for(int x = 0; x < grid[y].size(); x++){
             for(int s = 0; s < slopes.size(); s++){
                 checkForWord(x, y, slopes[s].x, slopes[s].y);
+            }
+        }
+    }
+}
+
+void WordSearch::printResults(){
+    for(int i = 0; i < words.size(); i++){
+        if(words[i].found){
+            std::cout << words[i].word << ": ";
+            for(int j = 0; j < words[i].char_pos.size(); j++){
+                std::cout << "(" << words[i].char_pos[j].x << "," << words[i].char_pos[j].y << ")";
+                if(j != words[i].char_pos.size() - 1){
+                    std::cout << ",";
+                }
+                else{
+                    std::cout << std::endl;
+                }
             }
         }
     }

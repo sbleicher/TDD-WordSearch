@@ -20,6 +20,8 @@ endforeach( file_i )
 # Locate GTest
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-add_executable(wordSearchTests tests/word-search.tests.cpp)
-target_link_libraries(wordSearchTests gtest gtest_main)
-add_test( wordSearchTests wordSearchTests )
+add_executable(WordSearchTests tests/word_search.tests.cpp)
+target_link_libraries(WordSearchTests gtest gtest_main)
+add_test( WordSearchTests WordSearchTests )
+
+add_executable(WordSearch src/puzzle_solver.cpp)

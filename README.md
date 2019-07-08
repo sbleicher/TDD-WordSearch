@@ -10,6 +10,6 @@
 8. ~~Search Diagonally Descending Left~~
 9. ~~Search Diagonally Descending Right~~
 10. ~~Search Diagonally Ascending Left~~
-11. Search Diagonally Ascending Right <-
-12. Search Puzzle For Words
-13. Output Words Location
+11. ~~Search Diagonally Ascending Right~~
+12. ~~Search Puzzle For Words~~
+13. Output Words Location <-
