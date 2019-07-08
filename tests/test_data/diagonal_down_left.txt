@@ -1,0 +1,16 @@
+ZAP,JOG,MAX,ZOO
+Q,M,Z,H,U,L,K,H,A,N,J,B,S,Y,J
+S,A,S,H,K,Z,Z,W,Z,C,G,J,U,O,D
+P,S,N,P,J,P,R,J,D,H,S,B,G,T,L
+B,R,J,S,L,E,Q,E,T,I,K,K,G,L,E
+A,Y,O,A,G,C,I,R,D,Q,H,R,T,C,D
+S,C,O,T,T,Y,K,Z,R,E,P,P,X,P,F
+B,L,Q,S,L,N,E,E,E,V,U,L,F,M,Z
+O,K,R,I,K,A,M,M,R,M,F,B,A,P,P
+N,U,I,I,Y,H,Q,M,E,M,Q,R,Y,F,S
+E,Y,Z,Y,G,K,Q,J,P,C,Q,W,Y,A,K
+S,J,F,Z,M,Q,I,K,I,R,K,M,K,W,D
+T,G,L,B,H,C,B,E,C,H,T,O,Y,I,K
+S,J,M,E,U,L,N,C,C,L,Y,B,V,U,Z
+Q,A,M,I,S,U,K,U,R,B,I,D,U,O,P
+X,B,B,B,Q,Q,P,M,D,F,B,O,O,L,K

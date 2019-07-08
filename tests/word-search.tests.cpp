@@ -93,7 +93,6 @@ TEST(WordSearch, Horizantal_Forward_Test){
   ws.searchPuzzle();
   std::vector<Word> words = ws.getWords();
 
-
   ASSERT_EQ(correctPositions.size(), words.size());
 
   for(int i = 0; i < words.size(); i++){
@@ -119,7 +118,6 @@ TEST(WordSearch, Horizantal_Backwards_Test){
   ws.ReadFile();
   ws.searchPuzzle();
   std::vector<Word> words = ws.getWords();
-
 
   ASSERT_EQ(correctPositions.size(), words.size());
 
@@ -147,7 +145,6 @@ TEST(WordSearch, Vertical_Forward_Test){
   ws.searchPuzzle();
   std::vector<Word> words = ws.getWords();
 
-
   ASSERT_EQ(correctPositions.size(), words.size());
 
   for(int i = 0; i < words.size(); i++){
@@ -163,17 +160,16 @@ TEST(WordSearch, Vertical_Forward_Test){
 }
 
 TEST(WordSearch, Vertical_Backwards_Test){
-  const std::string filename = "test_data/vertical_backward.txt";
-  const std::vector<std::vector<Position>> correctPositions = { { Position(0,2), Position(0,1), Position(0,0) },
-    { Position(14,2), Position(14,1), Position(14,0) },
-    { Position(0,14), Position(0,13), Position(0,12) },
-    { Position(14,14), Position(14,13), Position(14,12) }, };
+  const std::string filename = "test_data/diagonal_down_left.txt";
+  const std::vector<std::vector<Position>> correctPositions = { { Position(2,0), Position(1,1), Position(0,2) },
+    { Position(14,0), Position(13,1), Position(12,0) },
+    { Position(2,14), Position(1,13), Position(0,12) },
+    { Position(14,12), Position(13,13), Position(12,14) }, };
 
   WordSearch ws(filename);
   ws.ReadFile();
   ws.searchPuzzle();
   std::vector<Word> words = ws.getWords();
-
 
   ASSERT_EQ(correctPositions.size(), words.size());
 
