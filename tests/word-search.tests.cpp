@@ -184,13 +184,13 @@ TEST(WordSearch, Diagonal_Down_Left_Test){
     }
   }
 }
-/*
-TEST(WordSearch, Vertical_Backwards_Test){
+
+TEST(WordSearch, Diagonal_Down_Right_Test){
   const std::string filename = "test_data/diagonal_down_right.txt";
   const std::vector<std::vector<Position>> correctPositions = { { Position(0,0), Position(1,1), Position(2,2) },
-    { Position(12,0), Position(13,1), Position(14,0) },
-    { Position(0,14), Position(1,13), Position(2,12) },
-    { Position(14,12), Position(13,13), Position(12,14) }, };
+    { Position(12,0), Position(13,1), Position(14,2) },
+    { Position(0,12), Position(1,13), Position(2,14) },
+    { Position(12,12), Position(13,13), Position(14,14) }, };
 
   WordSearch ws(filename);
   ws.ReadFile();
@@ -206,8 +206,8 @@ TEST(WordSearch, Vertical_Backwards_Test){
   for(int i = 0; i < words.size(); i++){
     for(int j = 0; j < words[i].word.size(); j++){
       EXPECT_EQ(correctPositions[i][j].x, words[i].char_pos[j].x);
-      EXPECT_EQ(correctPositions[i][j]., words[i].char_pos[j].y);
+      EXPECT_EQ(correctPositions[i][j].y, words[i].char_pos[j].y);
     }
   }
 }
-*/
+
