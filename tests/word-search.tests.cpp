@@ -211,3 +211,28 @@ TEST(WordSearch, Diagonal_Down_Right_Test){
   }
 }
 
+TEST(WordSearch, Diagonal_Up_Left_Test){
+  const std::string filename = "test_data/diagonal_up_left.txt";
+  const std::vector<std::vector<Position>> correctPositions = { { Position(2,2), Position(1,1), Position(0,0) },
+    { Position(14,2), Position(13,1), Position(12,0) },
+    { Position(2,14), Position(1,13), Position(0,12) },
+    { Position(14,14), Position(13,13), Position(12,12) }, };
+
+  WordSearch ws(filename);
+  ws.ReadFile();
+  ws.searchPuzzle();
+  std::vector<Word> words = ws.getWords();
+
+  ASSERT_EQ(correctPositions.size(), words.size());
+
+  for(int i = 0; i < words.size(); i++){
+    ASSERT_EQ(correctPositions[i].size(), words[i].word.size());
+  }
+
+  for(int i = 0; i < words.size(); i++){
+    for(int j = 0; j < words[i].word.size(); j++){
+      EXPECT_EQ(correctPositions[i][j].x, words[i].char_pos[j].x);
+      EXPECT_EQ(correctPositions[i][j].y, words[i].char_pos[j].y);
+    }
+  }
+}

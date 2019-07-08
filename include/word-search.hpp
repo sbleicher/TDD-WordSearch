@@ -35,7 +35,8 @@ class WordSearch
             Slope(0, 1), //Vertical Forward
             Slope(0, -1), //Vertical Backwards
             Slope(-1, 1), //Diagonally Descending Left
-            Slope(1, 1) //Diagonally Descending Right
+            Slope(1, 1), //Diagonally Descending Right
+            Slope(-1, -1) //Diagonally Up Left
         };
 
     public: 
