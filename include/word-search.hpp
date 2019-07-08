@@ -30,7 +30,8 @@ class WordSearch
         std::vector<Word> words;
         std::vector<std::vector<char>> grid;
         std::vector<Slope> slopes = { 
-            Slope(1, 0)
+            Slope(1, 0),
+            Slope(-1, 0)
         };
 
     public: 
@@ -109,11 +110,12 @@ bool WordSearch::checkIfWordFitsInPuzzle(int posX, int posY, int slopeX, int slo
 
 void WordSearch::checkForWord(int x, int y, int slopeX, int slopeY){
     for(int i = 0; i < words.size(); i++){
-        if(words[i].word[0] == grid[y][x] && checkIfWordFitsInPuzzle(x, y, slopeX, slopeY, words[i])){
+        if(!words[i].found && words[i].word[0] == grid[y][x] && checkIfWordFitsInPuzzle(x, y, slopeX, slopeY, words[i])){
             bool validated = true;
             for(int j = 1; j < words[i].word.size(); j++){
                 if(words[i].word[j] != grid[y + j * slopeY][x + j * slopeX]){
                     validated = false; 
+                    words[i].found = true;
                     break;
                 }
             }
@@ -136,7 +138,6 @@ void WordSearch::searchPuzzle(){
             }
         }
     }
-
 }
 
 #endif
