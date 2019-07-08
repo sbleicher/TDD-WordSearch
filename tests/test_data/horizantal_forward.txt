@@ -2,7 +2,7 @@ BONES,KHAN,KIRK,SCOTTY
 U,M,K,H,U,L,K,H,A,N,J,O,C,W,E
 L,L,S,H,K,Z,Z,W,Z,C,G,J,U,Y,G
 H,S,U,P,J,P,R,J,D,H,S,B,X,T,G
-B,R,J,S,O,E,Q,E,T,I,K,K,G,L,E
+B,R,J,S,L,E,Q,E,T,I,K,K,G,L,E
 A,Y,O,A,G,C,I,R,D,Q,H,R,T,C,D
 S,C,O,T,T,Y,K,Z,R,E,P,P,X,P,F
 B,L,Q,S,L,N,E,E,E,V,U,L,F,M,Z
