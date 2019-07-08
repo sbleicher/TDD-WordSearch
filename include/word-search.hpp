@@ -8,12 +8,19 @@
 
 struct Position{
     int x, y;
+
+    Position(int xVal, int yVal){
+        x = xVal;
+        y = yVal;
+    }
 };
 
+typedef Position Slope;
+
 struct Word{
-    public:
-        std::string word;
-        std::vector<Position> char_pos;
+    std::string word;
+    std::vector<Position> char_pos;
+    bool found;
 };
 
 class WordSearch 
@@ -22,12 +29,17 @@ class WordSearch
         std::string file;
         std::vector<Word> words;
         std::vector<std::vector<char>> grid;
+        std::vector<Slope> slopes = { 
+            Slope(1, 0)
+        };
 
     public: 
         WordSearch(std::string filename);
         void ReadFile();
         bool isValidPuzzle();
         bool checkIfWordFitsInPuzzle(int posX, int posY, int slopeX, int slopeY, Word word);
+        void checkForWord(int x, int y, int slopeX, int slopeY);
+        void searchPuzzle();
 
         //Get Functions
         std::string getFilename() { return file; }
@@ -93,6 +105,38 @@ bool WordSearch::checkIfWordFitsInPuzzle(int posX, int posY, int slopeX, int slo
     }
 
     return true;
+}
+
+void WordSearch::checkForWord(int x, int y, int slopeX, int slopeY){
+    for(int i = 0; i < words.size(); i++){
+        if(words[i].word[0] == grid[y][x] && checkIfWordFitsInPuzzle(x, y, slopeX, slopeY, words[i])){
+            bool validated = true;
+            for(int j = 1; j < words[i].word.size(); j++){
+                if(words[i].word[j] != grid[y + j * slopeY][x + j * slopeX]){
+                    validated = false; 
+                    break;
+                }
+            }
+
+            if(validated){
+                for(int j = 0; j < words[i].word.size(); j++){
+                    Position tPos(x + j * slopeX, y + j * slopeY);
+                    words[i].char_pos.push_back(tPos);
+                }
+            }
+        }
+    }
+}
+
+void WordSearch::searchPuzzle(){
+    for(int y = 0; y < grid.size(); y++){
+        for(int x = 0; x < grid[y].size(); x++){
+            for(int s = 0; s < slopes.size(); s++){
+                checkForWord(x, y, slopes[s].x, slopes[s].y);
+            }
+        }
+    }
+
 }
 
 #endif

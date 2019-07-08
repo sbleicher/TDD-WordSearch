@@ -80,3 +80,30 @@ TEST(WordSearch, Words_Fit_Test){
   EXPECT_EQ(true, t1);
   EXPECT_EQ(false, t2);
 }
+
+TEST(WordSearch, Horizantal_Forward_Test){
+  const std::string filename = "test_data/horizantal_forward.txt";
+  const std::vector<std::vector<Position>> correctPositions = { { Position(10,14), Position(11,14), Position(12,14), Position(13,14), Position(14,14) },
+    { Position(6,0), Position(7,0), Position(8,0), Position(9,0) },
+    { Position(7,10), Position(8,10), Position(9,10), Position(10,10) },
+    { Position(0,5), Position(1,5), Position(2,5), Position(3,5), Position(4,5), Position(5,5) } };
+
+  WordSearch ws(filename);
+  ws.ReadFile();
+  ws.searchPuzzle();
+  std::vector<Word> words = ws.getWords();
+
+
+  ASSERT_EQ(correctPositions.size(), words.size());
+
+  for(int i = 0; i < words.size(); i++){
+    ASSERT_EQ(correctPositions[i].size(), words[i].word.size());
+  }
+
+  for(int i = 0; i < words.size(); i++){
+    for(int j = 0; j < words[i].word.size(); j++){
+      EXPECT_EQ(correctPositions[i][j].x, words[i].char_pos[j].x);
+      EXPECT_EQ(correctPositions[i][j].x, words[i].char_pos[j].x);
+    }
+  }
+}
