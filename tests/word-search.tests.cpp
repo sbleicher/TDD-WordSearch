@@ -211,12 +211,12 @@ TEST(WordSearch, Diagonal_Down_Right_Test){
   }
 }
 
-TEST(WordSearch, Diagonal_Up_Left_Test){
-  const std::string filename = "test_data/diagonal_up_left.txt";
-  const std::vector<std::vector<Position>> correctPositions = { { Position(2,2), Position(1,1), Position(0,0) },
-    { Position(14,2), Position(13,1), Position(12,0) },
-    { Position(2,14), Position(1,13), Position(0,12) },
-    { Position(14,14), Position(13,13), Position(12,12) }, };
+TEST(WordSearch, Diagonal_Up_Right_Test){
+  const std::string filename = "test_data/diagonal_up_right.txt";
+  const std::vector<std::vector<Position>> correctPositions = { { Position(0,2), Position(1,1), Position(2,0) },
+    { Position(12,2), Position(13,1), Position(14,0) },
+    { Position(0,14), Position(1,13), Position(2,12) },
+    { Position(12,14), Position(13,13), Position(14,12) }, };
 
   WordSearch ws(filename);
   ws.ReadFile();
