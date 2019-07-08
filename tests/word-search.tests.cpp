@@ -110,9 +110,36 @@ TEST(WordSearch, Horizantal_Forward_Test){
 
 TEST(WordSearch, Horizantal_Backwards_Test){
   const std::string filename = "test_data/horizantal_backward.txt";
-  const std::vector<std::vector<Position>> correctPositions = { { Position(0,2), Position(0,1), Position(0,0) },
+  const std::vector<std::vector<Position>> correctPositions = { { Position(2,0), Position(1,0), Position(0,0) },
+    { Position(14,0), Position(13,0), Position(12,0) },
+    { Position(2,14), Position(1,14), Position(0,14) },
+    { Position(14,14), Position(13,14), Position(12,14) }, };
+
+  WordSearch ws(filename);
+  ws.ReadFile();
+  ws.searchPuzzle();
+  std::vector<Word> words = ws.getWords();
+
+
+  ASSERT_EQ(correctPositions.size(), words.size());
+
+  for(int i = 0; i < words.size(); i++){
+    ASSERT_EQ(correctPositions[i].size(), words[i].word.size());
+  }
+
+  for(int i = 0; i < words.size(); i++){
+    for(int j = 0; j < words[i].word.size(); j++){
+      EXPECT_EQ(correctPositions[i][j].x, words[i].char_pos[j].x);
+      EXPECT_EQ(correctPositions[i][j].x, words[i].char_pos[j].x);
+    }
+  }
+}
+
+TEST(WordSearch, Vertical_Forward_Test){
+  const std::string filename = "test_data/vertical_forward.txt";
+  const std::vector<std::vector<Position>> correctPositions = { { Position(0,0), Position(0,1), Position(0,2) },
+    { Position(14,0), Position(14,1), Position(14,2) },
     { Position(0,12), Position(0,13), Position(0,14) },
-    { Position(14,2), Position(14,1), Position(14,0) },
     { Position(14,12), Position(14,13), Position(14,14) }, };
 
   WordSearch ws(filename);

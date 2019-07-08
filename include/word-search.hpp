@@ -30,8 +30,9 @@ class WordSearch
         std::vector<Word> words;
         std::vector<std::vector<char>> grid;
         std::vector<Slope> slopes = { 
-            Slope(1, 0),
-            Slope(-1, 0)
+            Slope(1, 0), //Horizantal Forward
+            Slope(-1, 0), //Horizantal Backward
+            Slope(0, 1) //Vertical Forward
         };
 
     public: 
@@ -68,6 +69,7 @@ void WordSearch::ReadFile(){
             if(line_count == 0){
                 Word tempWord;
                 tempWord.word = line_segment;
+                tempWord.found = false;
                 words.push_back(tempWord);
             }
             else{
@@ -96,12 +98,12 @@ bool WordSearch::checkIfWordFitsInPuzzle(int posX, int posY, int slopeX, int slo
     int yDisplacement = posY + slopeY * (wordSize - 1);
 
     //Checks if word will be outside for X value
-    if(xDisplacement < 0 || xDisplacement > grid[0].size()){
+    if(xDisplacement < 0 || xDisplacement >= grid[0].size()){
         return false;
     }
 
     //Checks if word will be outside for Y value
-    if(yDisplacement < 0 || xDisplacement > grid.size()){
+    if(yDisplacement < 0 || yDisplacement >= grid.size()){
         return false;
     }
 
@@ -115,12 +117,12 @@ void WordSearch::checkForWord(int x, int y, int slopeX, int slopeY){
             for(int j = 1; j < words[i].word.size(); j++){
                 if(words[i].word[j] != grid[y + j * slopeY][x + j * slopeX]){
                     validated = false; 
-                    words[i].found = true;
                     break;
                 }
             }
 
             if(validated){
+                words[i].found = true;
                 for(int j = 0; j < words[i].word.size(); j++){
                     Position tPos(x + j * slopeX, y + j * slopeY);
                     words[i].char_pos.push_back(tPos);
