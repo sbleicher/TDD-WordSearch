@@ -8,7 +8,7 @@ include_directories(include)
 
 # Create a list of files to copy
 set( THIRD_PARTY_DLLS
-   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_data/master_puzzle.txt
+   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_data/
 )
 
 # Copy test text files

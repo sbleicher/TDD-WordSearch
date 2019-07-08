@@ -66,3 +66,17 @@ TEST(WordSearch, Valid_Puzzle_Test){
   EXPECT_EQ(true, ws1.isValidPuzzle());
   EXPECT_EQ(false, ws2.isValidPuzzle());
 }
+
+TEST(WordSearch, Words_Fit_Test){
+  const std::string filename = "test_data/master_puzzle.txt";
+  WordSearch ws(filename);
+  ws.ReadFile();
+
+  std::vector<Word> words = ws.getWords();
+
+  bool t1 = ws.checkIfWordFitsInPuzzle(0, 0, 1, 0, words[0]);
+  bool t2 = ws.checkIfWordFitsInPuzzle(12, 0, 1, 0, words[0]);
+
+  EXPECT_EQ(true, t1);
+  EXPECT_EQ(false, t2);
+}

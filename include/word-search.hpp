@@ -27,6 +27,7 @@ class WordSearch
         WordSearch(std::string filename);
         void ReadFile();
         bool isValidPuzzle();
+        bool checkIfWordFitsInPuzzle(int posX, int posY, int slopeX, int slopeY, Word word);
 
         //Get Functions
         std::string getFilename() { return file; }
@@ -71,6 +72,24 @@ bool WordSearch::isValidPuzzle(){
     int gridLength = grid[0].size();
     for(int i = 0; i < grid.size(); i++){
         if(grid[i].size() != gridLength){ return false; }
+    }
+
+    return true;
+}
+
+bool WordSearch::checkIfWordFitsInPuzzle(int posX, int posY, int slopeX, int slopeY, Word word){
+    int wordSize = word.word.size();
+    int xDisplacement = posX + slopeX * (wordSize - 1);
+    int yDisplacement = posY + slopeY * (wordSize - 1);
+
+    //Checks if word will be outside for X value
+    if(xDisplacement < 0 || xDisplacement > grid[0].size()){
+        return false;
+    }
+
+    //Checks if word will be outside for Y value
+    if(yDisplacement < 0 || xDisplacement > grid.size()){
+        return false;
     }
 
     return true;

@@ -2,8 +2,8 @@
 
 1. ~~Read Words~~
 2. ~~Read Grid~~
-3. Valid Puzzle <-
-4. Search Horizantally Forward
+3. ~~Valid Puzzle~~
+4. Search Horizantally Forward <-
 5. Search Horizantally Backward
 6. Search Vertically Forward
 7. Search Vertically Backward
